@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background-color: #f2f2f2; }
+    header { background-color: #2e86de; color: white; text-align: center; padding: 30px; }
+    #about, #projects, #contact { background: white; max-width: 600px; margin: 20px 15px; padding: 20px; border-radius: 10px; }
+  input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+button { background-color: #2e86de; color: white; border: none; padding: 12px 20px; border-radius: 5px; font-size: 16px; }
+button:hover { background-color: #1b5fa8; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Aditya</h1>
+    <p>Web Developer in Making</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Main HTML, CSS, JavaScript aur Python seekh raha hoon.</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <ul>
+      <li>Quiz Game (Python)</li>
+      <li>Number Guessing Game (Python)</li>
+      <li>Contact Form (HTML, CSS, JavaScript)</li>
+    </ul>
+  </section>
+  <section id="contact">
+  <h2>Contact Me</h2>
+  <form>
+    <label for="naam">Naam</label><br>
+    <input type="text" id="naam" name="naam" required><br><br>
+
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="msg">Message</label><br>
+    <textarea id="msg" name="msg" rows="4"></textarea><br><br>
+
+    <button type="submit">Bhejo</button>
+  </form>
+  <p id="sandesh"></p>
+  </section>
+  <script>
+  const form = document.querySelector("form");
+  const sandesh = document.getElementById("sandesh");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const naam = document.getElementById("naam").value;
+    sandesh.textContent = "Shukriya " + naam + ", message mil gaya!";
+    form.reset();
+  });
+  </script>
+</body>
+</html>
