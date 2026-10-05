@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz</title>
+</head>
+<body>
+  <h2>Quiz Game</h2>
+  <p id="sawal"></p>
+  <input type="text" id="jawab">
+  <button id="check">Check</button>
+  <p id="natija"></p>
+
+  <script>
+    const sawal = [
+  {q: "Bharat ki rajdhani kya hai?", a: "delhi"},
+  {q: "2 + 2 kitna hota hai?", a: "4"},
+  {q: "Python mein print kis kaam aata hai?", a: "dikhane"}
+];
+
+const sawalBox = document.getElementById("sawal");
+const jawabBox = document.getElementById("jawab");
+const natija = document.getElementById("natija");
+const checkBtn = document.getElementById("check");
+
+let number = 0;
+let score = 0;
+
+function dikhao() {
+  if (number < sawal.length) {
+    sawalBox.textContent = (number + 1) + ". " + sawal[number].q;
+  } else {
+    sawalBox.textContent = "Quiz khatam! Score: " + score + "/" + sawal.length;
+    jawabBox.style.display = "none";
+    checkBtn.style.display = "none";
+  }
+}
+
+checkBtn.addEventListener("click", function() {
+  if (jawabBox.value.toLowerCase().trim() === sawal[number].a) {
+    natija.textContent = "Sahi!";
+    score = score + 1;
+  } else {
+    natija.textContent = "Galat! Sahi jawab: " + sawal[number].a;
+  }
+  number = number + 1;
+  jawabBox.value = "";
+  dikhao();
+});
+
+dikhao();
+  </script>
+</body>
+</html>
