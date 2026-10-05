@@ -34,7 +34,7 @@ button:hover { background-color: #1b5fa8; }
   </section>
   <section id="contact">
   <h2>Contact Me</h2>
-  <form>
+  <form action="https://formspree.io/f/xwlvegev" method="POST">
     <label for="naam">Naam</label><br>
     <input type="text" id="naam" name="naam" required><br><br>
 
@@ -48,16 +48,6 @@ button:hover { background-color: #1b5fa8; }
   </form>
   <p id="sandesh"></p>
   </section>
-  <script>
-  const form = document.querySelector("form");
-  const sandesh = document.getElementById("sandesh");
-
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    const naam = document.getElementById("naam").value;
-    sandesh.textContent = "Shukriya " + naam + ", message mil gaya!";
-    form.reset();
-  });
-  </script>
+  
 </body>
 </html>
