@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Number Guessing Game</title>
+</head>
+<body>
+  <h2>Number Guessing Game</h2>
+  <p>1 se 10 ke beech number guess karo (5 chances)</p>
+  <input type="number" id="guess">
+  <button id="btn">Guess</button>
+  <p id="natija"></p>
+  <p id="bache"></p>
+
+  <script>
+    const secret = Math.floor(Math.random() * 10) + 1;
+    const maxKoshish = 5;
+    let koshish = 0;
+
+    const guessBox = document.getElementById("guess");
+    const natija = document.getElementById("natija");
+    const bache = document.getElementById("bache");
+    const btn = document.getElementById("btn");
+
+    btn.addEventListener("click", function() {
+      const guess = Number(guessBox.value);
+      koshish = koshish + 1;
+
+      if (guess === secret) {
+        natija.textContent = "Wah! Sahi jawab! " + koshish + " koshish mein jeete";
+        btn.style.display = "none";
+      } else if (guess < secret) {
+        natija.textContent = "Number bada hai";
+      } else {
+        natija.textContent = "Number chhota hai";
+      }
+
+      if (guess !== secret) {
+        bache.textContent = "Bache hue chances: " + (maxKoshish - koshish);
+        if (koshish >= maxKoshish) {
+          natija.textContent = "Game over! Number tha: " + secret;
+          btn.style.display = "none";
+        }
+      }
+      guessBox.value = "";
+    });
+  </script>
+</body>
+</html>
